@@ -3,9 +3,9 @@ package dev.agasen.accountservice.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_NULL)
 public class CreateCustomerResponse {
-
+  
+  @JsonInclude(Include.NON_DEFAULT)
   private long customerNumber;
   private int transactionStatusCode;
   private String transactionStatusDescription;

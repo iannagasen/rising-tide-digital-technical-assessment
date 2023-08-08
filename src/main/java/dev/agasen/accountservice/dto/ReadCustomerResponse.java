@@ -14,6 +14,7 @@ public class ReadCustomerResponse {
   private String customerNumber;
   private String customerName;
   private String customerMobile;
+  private String customerEmail;
   private String address1;
   private String address2;
   private List<AccountDTO> savings;
@@ -23,9 +24,10 @@ public class ReadCustomerResponse {
   
   private static ReadCustomerResponse fromEntity(Customer customer) {
     ReadCustomerResponse res = new ReadCustomerResponse();
-    res.setCustomerNumber(customer.getCustomerNo());
+    res.setCustomerNumber(customer.getCustomerNo().toString());
     res.setCustomerMobile(customer.getMobileNo());
     res.setCustomerName(customer.getName());
+    res.setCustomerEmail(customer.getEmail());
     res.setAddress1(customer.getPrimaryAddress());
     res.setAddress2(customer.getSecondaryAddress());
     
@@ -102,6 +104,12 @@ public class ReadCustomerResponse {
   }
   public void setTransactionStatusDescription(String transactionStatusDescription) {
     this.transactionStatusDescription = transactionStatusDescription;
+  }
+  public String getCustomerEmail() {
+    return customerEmail;
+  }
+  public void setCustomerEmail(String customerEmail) {
+    this.customerEmail = customerEmail;
   }
 }
 

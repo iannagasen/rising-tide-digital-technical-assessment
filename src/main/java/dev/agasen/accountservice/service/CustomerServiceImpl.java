@@ -16,4 +16,10 @@ public class CustomerServiceImpl implements CustomerService{
     return customerRepository.findById(customerNo).orElseThrow(CustomerNotFoundException::new);
   }
 
+  @Override
+  public Long postCustomer(Customer customer) {
+    Customer savedCustomer = customerRepository.save(customer);
+    return savedCustomer.getCustomerNo();
+  }
+
 }

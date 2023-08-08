@@ -1,5 +1,7 @@
 package dev.agasen.accountservice.model;
 
+import java.util.Arrays;
+
 public enum AccountType {
   SAVINGS("S"),
   CHECKINGS("C");
@@ -12,6 +14,13 @@ public enum AccountType {
 
   public String getCode() {
     return code;
+  }
+
+  public static AccountType fromCode(String code) {
+    return Arrays.stream(AccountType.values())
+      .filter(type -> type.getCode().equals(code))
+      .findFirst()
+      .orElseThrow(() -> new IllegalArgumentException("Unknown AccountType code: " + code));
   }
 
   @Override
